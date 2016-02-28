@@ -1,6 +1,21 @@
 extends ../layout
 
 block content
-  div(class="starter-template")
-    h1= title
-    p(class="lead") Welcome to #{title}
+  div(class="page-header")
+    button(type="submit" form="myform" class="btn btn-success" ) Enviar
+  div(class="panel panel-primary")
+    div(class="panel-heading") Formulário de contato
+    div(class="panel-body")
+      div(class="row")
+        form(action='/sobre' method='post' id='myform')
+          div(class="form-group col-xs-6")
+              label(for="titulo") Titulo
+              input(type="text" class="form-control" id="titulo")
+          div(class="form-group col-xs-12")
+              label(for="conteudo") Conteúdo
+              textarea(class="form-control" id="conteudo")
+          div(class="form-group col-xs-6")
+              label(for="email") Email
+              div(class="input-group")
+                span(class="input-group-addon" id="email-addon") @
+                input(type="text" class="form-control" id="email" aria-describedby="email-addon")
