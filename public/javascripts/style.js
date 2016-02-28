@@ -1,4 +1,4 @@
-$(".nav a").on("click", function(){
+$(document).ready(function() {
   $(".nav").find(".active").removeClass("active");
-  $(this).parent().addClass("active");
+  $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
 });
