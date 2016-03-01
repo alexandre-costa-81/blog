@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var mongoose = require('mongoose');
+
 var app = express();
 
 // view engine setup
@@ -56,5 +58,12 @@ app.use(function(err, req, res, next) {
   });
 });
 
+mongoose.connect('mongodb://localhost/blog', function(err) {
+    if(err) {
+        console.log('Erro na conexão:', err);
+    } else {
+        console.log('Conexão com Mongodb realizada com sucesso.');
+    }
+});
 
 module.exports = app;
