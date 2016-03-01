@@ -7,15 +7,15 @@ block content
     div(class="panel-heading") Formulário de contato
     div(class="panel-body")
       div(class="row")
-        form(action='/sobre' method='post' id='myform')
+        form(action='/contato' method='post' id='myform')
           div(class="form-group col-xs-6")
               label(for="titulo") Titulo
-              input(type="text" class="form-control" id="titulo")
+              input(type="text" class="form-control" id="titulo", name="titulo")
           div(class="form-group col-xs-12")
               label(for="conteudo") Conteúdo
-              textarea(class="form-control" id="conteudo")
+              textarea(class="form-control" id="conteudo", name="conteudo")
           div(class="form-group col-xs-6")
               label(for="email") Email
               div(class="input-group")
                 span(class="input-group-addon" id="email-addon") @
-                input(type="text" class="form-control" id="email" aria-describedby="email-addon")
+                input(type="text" class="form-control" id="email" aria-describedby="email-addon", name="email")
