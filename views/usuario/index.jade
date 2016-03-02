@@ -1,6 +1,30 @@
 extends ../layout
 
 block content
-  div(class="starter-template")
-    h1= title
-    p(class="lead") Welcome to #{title}
+  div(class="page-header")
+    div(class="btn-group")
+      a(href="/usuario/create" class="btn btn-primary") Novo
+  div(class="panel panel-primary")
+    div(class="panel-heading") Lista de usuários
+    div(class="panel-body")
+      div(class="row")
+        div(class="col-md-12")
+          table(class="table")
+            thead
+              tr
+                th #
+                th Nome
+                th Email
+                th Data de alteração
+                th Ação
+            tbody
+              each usuario, index in usuarios
+                tr
+                  td #{index}
+                  td #{usuario.nome}
+                  td #{usuario.email}
+                  td #{usuario.dt_alteracao}
+                  td
+                    div(class="btn-group pull-right")
+                      a(href="/usuario/#{usuario.id}/edit" class="btn btn-warning") Editar
+                      a(href="/usuario/#{usuario.id}/edit" class="btn btn-danger") Excluir

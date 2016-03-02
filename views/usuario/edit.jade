@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  div(class="page-header")
+    div(class="btn-group")
+      a(href="/usuario" class="btn btn-default") Voltar
+      a(href="/usuario/create" class="btn btn-primary") Novo
+      button(type="submit" form="usuarioform" class="btn btn-success") Salve
+  div(class="panel panel-primary")
+    div(class="panel-heading") Formulário de usuário
+    div(class="panel-body")
+      div(class="row")
+        div(class="col-md-6")
+          form(action="/usuario/"+usuario.id+"/edit", method='post', id='usuarioform', enctype='application/x-www-form-urlencoded')
+            div(class="form-group")
+                label(for="nome") Nome
+                input(type="text" class="form-control" id="nome", name="nome", value=usuario.nome)
+            div(class="form-group")
+                label(for="email") Email
+                div(class="input-group")
+                  span(class="input-group-addon" id="email-addon") @
+                  input(type="teemailxt" class="form-control" id="email" aria-describedby="email-addon", name="email", value=usuario.email)
+            input(type='hidden',value='PUT',name='_method')
